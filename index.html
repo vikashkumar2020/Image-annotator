@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Annotator</title>
+
+    <link href="index.css" rel="stylesheet">
+    <script src="./assets/canvas.min.js"></script>
+    <script src="./assets/jszip.min.js"></script>
+    <script src="./assets/filesaver.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="left">
+            <div id="image-annotator">Image Annotator</div>
+            <form action="">
+                <div class="flexa">
+                    <div class="getImage">
+                        <label for="images">Images:</label>
+                        <input type="file" id="images" name="images[]" accept="image/jpeg, image/png" multiple />
+                    </div>
+                        <label for="imageList"></label>
+                        <select name="imageList" class="select-sim" id="imageList" size="1" multiple>
+                            <option class="placeholder"  value="">Select Images</option>
+                        </select>
+                    <div id="imageInformation"></div>
+                    <div class="getLabel">
+                        <label for="classes">Labels:</label>
+                        <input type="file" id="classes" name="classes" accept="text/plain" />
+                    </div>
+                    <label for="classList"></label>
+                    <select name="classList" class="select-sim" id="classList" size="1" multiple>
+                        <option class="placeholder"  value="">Select Labels</option>
+                    </select>
+
+                    <div id="bboxInformation"></div>
+                    <div class="afterImage">
+                            <input type="button" name="restoreBboxes" id="restoreBboxes" value="Restore" disabled />
+                            <input type="button" name="download" id="download" value="Download Image" />
+                    </div>
+
+                    <div class="afterImage">
+                        <input type="button" name="cropImages" id="cropImages" value="Crop & Save" />
+                        <input type="button" name="JSON Data" id="saveCocoBboxes" value="JSON Data" />
+                    </div>
+
+                <div id="description">
+                    <h3>SHORTCUTS:</h3>
+                    <ul>
+                        <li>
+                            Mouse WHEEL - zoom in/out image
+                        </li>
+                        <li>
+                            Mouse RIGHT BUTTON - pan image
+                        </li>
+                        <li>
+                            Arrows LEFT and RIGHT - cycle images
+                        </li>
+                        <li>
+                            Arrows Up and DOWN - cycle classes
+                        </li>
+                        <li>
+                            Key DELETE - remove selected Bbox
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </form>
+        </div>
+
+        <div class="right" id="right">
+            <canvas id="canvas"></canvas>
+            <canvas id="hiddenCanvas"></canvas>
+        </div>
+    </div>
+</body>
+</html>
