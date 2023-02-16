@@ -107,7 +107,7 @@
 
     // Listen to canvas events
     const listenCanvas = () => {
-        canvas = new Canvas("canvas", document.getElementById("right").clientWidth-10, window.innerHeight - 40)
+        canvas = new Canvas("canvas", document.getElementById("right").clientWidth - 10, window.innerHeight - 40)
 
         // canvas.on event defined in canvas.js as event 
         canvas.on("draw", (context) => {
@@ -130,7 +130,7 @@
         context.drawImage(currentImage.object, zoomX(0), zoomY(0), zoom(currentImage.width), zoom(currentImage.height))
 
     }
-    
+
     function download() {
 
 
@@ -148,7 +148,7 @@
         img.src = canvas.toImage("png");
         console.log(img.src);
         hidden_ctx.drawImage(
-            currentImage.object, 
+            currentImage.object,
             zoomX(0),//Start Clipping
             zoomY(0),//Start Clipping
             currentImage.width,//Clipping Width
@@ -162,14 +162,14 @@
 
 
         //Create a download URL for the data
-        var hidden_data = hidden_canv.toDataURL("image/png").replace("image/png", "image/octet-stream"); 
-        
-        var image =  hidden_data;
+        var hidden_data = hidden_canv.toDataURL("image/png").replace("image/png", "image/octet-stream");
+
+        var image = hidden_data;
         const link = document.createElement("a");
         link.href = image;
         link.download = "image.png";
         link.click();
-      }
+    }
 
 
 
@@ -177,13 +177,13 @@
     const drawIntro = (context) => {
         context.font = "30px Verdana";
         var gradient = context.createLinearGradient(0, 0, canvas.width, 0);
-        gradient.addColorStop("0"," magenta");
+        gradient.addColorStop("0", " magenta");
         gradient.addColorStop("0.5", "blue");
         gradient.addColorStop("1.0", "red");
         // Fill with gradient
         context.fillStyle = gradient;
-        context.fillText("Please load your images (jpg, png).", zoomX(canvas.width/2), zoomY(canvas.height/2));
-       
+        context.fillText("Please load your images (jpg, png).", zoomX(canvas.width / 2), zoomY(canvas.height / 2));
+
     }
     //draw new bounding boxes
     const drawNewBbox = (context) => {
@@ -213,7 +213,7 @@
 
     //draw Bboxes of same class
     const drawExistingBboxes = (context) => {
-       //console.log(currentImage.name)
+        //console.log(currentImage.name)
         const currentBboxes = bboxes[currentImage.name]
 
         for (let className in currentBboxes) {
@@ -254,7 +254,7 @@
     }
 
     //cross axis line
-    const drawCross = (context) => { 
+    const drawCross = (context) => {
 
         if (inside_image(0, 0, currentImage.width, currentImage.height, mouse.realX, mouse.realY) === true) {
             context.setLineDash([5])
@@ -290,7 +290,7 @@
             context.fillStyle = markedBackgroundColor
         }
     }
-    
+
     //set coordinates of Bboxes
     const setBboxCoordinates = (x, y, width, height) => {
         const x2 = x + width
@@ -317,7 +317,7 @@
         canvas.element.addEventListener("mousedown", trackPointer)
         canvas.element.addEventListener("mouseup", trackPointer)
         canvas.element.addEventListener("mouseout", trackPointer)
-        
+
     }
 
     //track wheel
@@ -326,10 +326,10 @@
         //a negative value when scrolling up (reduce size)
         if (event.deltaY < 0) {
             scale = Math.min(maxZoom, scale * scrollSpeed)
-            
+
         }
-       // a positive value when scrolling down (increase size zoom)
-         else {
+        // a positive value when scrolling down (increase size zoom)
+        else {
             scale = Math.max(minZoom, scale * (1 / scrollSpeed))
         }
 
@@ -361,15 +361,15 @@
         if (event.type === "mousedown" && inside_image(0, 0, currentImage.width, currentImage.height, mouse.realX, mouse.realY) === true) {
             mouse.startRealX = mouse.realX
             mouse.startRealY = mouse.realY
-           // https://stackoverflow.com/questions/56199283/how-to-catch-mouse-left-button-on-mouseover-event
-             if (event.which === 3) {
-                 mouse.buttonR = true
-             } 
-            
-           else if (event.which === 1) {
-                 mouse.buttonL = true
+            // https://stackoverflow.com/questions/56199283/how-to-catch-mouse-left-button-on-mouseover-event
+            if (event.which === 3) {
+                mouse.buttonR = true
             }
-        } 
+
+            else if (event.which === 1) {
+                mouse.buttonL = true
+            }
+        }
         else if (event.type === "mouseup" || event.type === "mouseout") {
             if (mouse.buttonL === true && currentImage !== null && currentClass !== null && inside_image(0, 0, currentImage.width, currentImage.height, mouse.realX, mouse.realY) === true) {
                 const movedWidth = Math.max((mouse.startRealX - mouse.realX), (mouse.realX - mouse.startRealX))

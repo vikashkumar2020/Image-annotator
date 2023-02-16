@@ -21,7 +21,7 @@ All browsers that support ES6 should work. Tested with:
 * Safari v11
 * Opera v51
 
-No idea about IE/Edge.
+No idea about IE/Edge or Brave.
 
 ## FEATURES
 * Works in your browser on any platform.
