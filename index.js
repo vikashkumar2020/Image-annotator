@@ -96,10 +96,10 @@
             listenImageSelect()
             listenClassLoad()
             listenClassSelect()
-            listenBboxCocoSave()
+            // listenBboxCocoSave()
             listenBboxRestore()
             listenKeyboard()
-            listenImageCrop()
+            // listenImageCrop()
             // listenBboxLoad()
             // listenBboxSave()
         }
@@ -671,7 +671,7 @@
             const files = event.target.files
 
             if (files.length > 0) {
-                resetImageList()
+                // resetImageList()
                 document.body.style.cursor = "wait"
 
                 for (let i = 0; i < files.length; i++) {

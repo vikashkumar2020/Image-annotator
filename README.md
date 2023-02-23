@@ -36,3 +36,4 @@ No idea about IE/Edge or Brave.
 ## CAVEATS
 * Loading many and or big images might take a while. This is because tool needs to figure out image dimensions.  
 * Cropping many items might crash your browser. This and above will be fixed at some point.
+* Working may not properly in mobile view

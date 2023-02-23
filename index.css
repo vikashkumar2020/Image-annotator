@@ -110,20 +110,20 @@ input[type=file]::file-selector-button {
   cursor: pointer;
 }
 
-/* input[type=file]::-ms-browse:hover {
+input[type=file]::-ms-browse:hover {
   background-color: #81ecec;
   border: 2px solid #00cec9;
-} */
+} 
 
-/* input[type=file]::-webkit-file-upload-button:hover {
+input[type=file]::-webkit-file-upload-button:hover {
   background-color: #81ecec;
   border: 2px solid #00cec9;
-} */
+}
 
-/* input[type=file]::file-selector-button:hover {
+input[type=file]::file-selector-button:hover {
   background-color: #81ecec;
   border: 2px solid #00cec9;
-} */
+}
 
 input[type='button'] {
     border: 2px solid #9ea79a;
@@ -181,7 +181,7 @@ input[type='button'] {
     overflow:visible;
     max-height: 400px;
   }
-  
+
   option{
       padding: 5px 25px;
       display: flex;
