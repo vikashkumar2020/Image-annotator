@@ -96,7 +96,7 @@
             listenImageSelect()
             listenClassLoad()
             listenClassSelect()
-            // listenBboxCocoSave()
+            listenBboxCocoSave()
             listenBboxRestore()
             listenKeyboard()
             // listenImageCrop()
