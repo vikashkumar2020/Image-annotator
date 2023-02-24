@@ -806,7 +806,7 @@
         const imageList = document.getElementById("imageList")
 
         imageList.addEventListener("change", () => {
-            imageListIndex = imageList.selectedIndex3
+            imageListIndex = imageList.selectedIndex
             setCurrentImage(images[imageList.options[imageListIndex].innerHTML])
         })
     }
