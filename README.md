@@ -2,6 +2,7 @@
 Fast and efficient BBox annotation 
 
 ![Sample](./assets/img_sc.png)
+![Sample](./assets/traffic.png)
 
 ## USAGE
 1. Download the zip.
